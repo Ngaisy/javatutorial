@@ -1,0 +1,44 @@
+package javatutorial;
+
+import java.util.Arrays;
+import org.apache.commons.lang3.ArrayUtils;
+/**
+ * Created by Shawn on 2/11/16.
+ */
+import java.util.Arrays;
+import org.apache.commons.lang3.ArrayUtils;
+public class LessonTen {
+    public static void main(String[] args)
+    {
+       /* Monster Frank = new Monster();
+
+        Frank.name = "Frank";
+        //due to "attack" is an private object, so cannot be achieved by outside document
+        //so I need special function, such getAttack.
+        System.out.println(Frank.name + "has an attack of" + Frank.getAttack());
+        */
+        MonsterTwo.buildBattleBoard();
+
+        MonsterTwo[] Monsters = new MonsterTwo[4];
+
+        Monsters[0]  = new MonsterTwo(1000,20, 1,"Frank");
+        Monsters[1]  = new MonsterTwo(500,40, 2,"Drac");
+        Monsters[2]  = new MonsterTwo(1000,20, 1,"Paul");
+        Monsters[3]  = new MonsterTwo(1000,20, 1,"George");
+
+        MonsterTwo.redrawBoard();
+
+        for(MonsterTwo m : Monsters)
+        {
+
+            if(m.getAlive())
+            {
+                int arrayItemIndex = ArrayUtils.indexOf(Monsters,m);
+                m.moveMonster(Monsters, arrayItemIndex);
+            }
+        }
+        MonsterTwo.redrawBoard();
+
+    }
+}
+
